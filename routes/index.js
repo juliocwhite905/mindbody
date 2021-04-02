@@ -12,6 +12,9 @@ module.exports = function() {
     router.post('/desactivar', 
     mindBodyController.desactivar
     );
+    router.get('/migrate', 
+    mindBodyController.migrate
+    );
 
     
     return router;
