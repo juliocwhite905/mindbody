@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mindBodyController = require('../controllers/mindBodyController');
+const bitrixController = require('../controllers/bitrixController');
 
 module.exports = function() {
     router.post('/create', 
@@ -15,7 +16,19 @@ module.exports = function() {
     router.get('/migrate', 
     mindBodyController.migrate
     );
-
+    router.post('/createbitrix', 
+    bitrixController.createbitrix
+    );
+    router.post('/updatebitrix', 
+    bitrixController.updatebitrix
+    );
+    router.post('/createbitrixEvent', 
+    mindBodyController.createbitrixEvent
+    );
+    router.get('/test', 
+    bitrixController.test
+    );
+    
     
     return router;
 }
