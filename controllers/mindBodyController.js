@@ -69,9 +69,9 @@ exports.update = async (req, res, next) => {
                 console.log('error')
             }
 
-            let IdStatus = 26;
+            let IdStatus = 53;
             if(!status){
-                IdStatus = 27;
+                IdStatus = 55;
             }
             // console.log('IdStatus',IdStatus)
             const id = contacto.data.result[0].ID;
@@ -203,7 +203,11 @@ exports.desactivar = async (req, res, next) => {
                         email = `FIELDS[EMAIL][0][VALUE]=${reqt[i].Email}`
                     }
                     // console.log(email)
-                    const respuesta = await clienteAxios.post(`/crm.contact.add.json?FIELDS[UF_CRM_1614652133533]=${reqt[i].Id}&FIELDS[NAME]=${reqt[i].FirstName}&FIELDS[LAST_NAME]=${reqt[i].LastName}&FIELDS[BIRTHDATE]=${reqt[i].BirthDate}&FIELDS[PHONE][0][VALUE]=${reqt[i].MobilePhone}&FIELDS[PHONE][0][VALUE_TYPE]=MOBILE&FIELDS[PHONE][1][VALUE]=${reqt[i].HomePhone}&FIELDS[PHONE][1][VALUE_TYPE]=HOME&FIELDS[PHONE][2][VALUE]=${reqt[i].WorkPhone}&FIELDS[PHONE][2][VALUE_TYPE]=WORK&${email}&FIELDS[EMAIL][0][VALUE_TYPE]=HOME&FIELDS[ADDRESS]=${reqt[i].AddressLine1}&FIELDS[ADDRESS_2]=${reqt[i].AddressLine2}&FIELDS[ADDRESS_CITY]=${reqt[i].City}&FIELDS[ADDRESS_PROVINCE]=${reqt[i].State}&FIELDS[ADDRESS_POSTAL_CODE]=${reqt[i].PostalCode}&FIELDS[ADDRESS_COUNTRY]=${reqt[i].Country}&FIELDS[OPENED]=Y&FIELDS[SOURCE_ID]=1&FIELDS[EXPORT]=Y&FIELDS[TYPE_ID]=CLIENT&FIELDS[UF_CRM_1614652397542]=${reqt[i].Gender}&FIELDS[UF_CRM_1616730398141]=${reqt[i].Active}`);
+                    let IdStatus = 53;
+                    if(!reqt[i].Active){
+                        IdStatus = 55;
+                    }
+                    const respuesta = await clienteAxios.post(`/crm.contact.add.json?FIELDS[UF_CRM_1618077556918]=${reqt[i].Id}&FIELDS[NAME]=${reqt[i].FirstName}&FIELDS[LAST_NAME]=${reqt[i].LastName}&FIELDS[BIRTHDATE]=${reqt[i].BirthDate}&FIELDS[PHONE][0][VALUE]=${reqt[i].MobilePhone}&FIELDS[PHONE][0][VALUE_TYPE]=MOBILE&FIELDS[PHONE][1][VALUE]=${reqt[i].HomePhone}&FIELDS[PHONE][1][VALUE_TYPE]=HOME&FIELDS[PHONE][2][VALUE]=${reqt[i].WorkPhone}&FIELDS[PHONE][2][VALUE_TYPE]=WORK&${email}&FIELDS[EMAIL][0][VALUE_TYPE]=HOME&FIELDS[ADDRESS]=${reqt[i].AddressLine1}&FIELDS[ADDRESS_2]=${reqt[i].AddressLine2}&FIELDS[ADDRESS_CITY]=${reqt[i].City}&FIELDS[ADDRESS_PROVINCE]=${reqt[i].State}&FIELDS[ADDRESS_POSTAL_CODE]=${reqt[i].PostalCode}&FIELDS[ADDRESS_COUNTRY]=${reqt[i].Country}&FIELDS[OPENED]=Y&FIELDS[SOURCE_ID]=1&FIELDS[EXPORT]=Y&FIELDS[TYPE_ID]=CLIENT&FIELDS[UF_CRM_1614652397542]=${reqt[i].Gender}&FIELDS[UF_CRM_1618077662617]=${IdStatus}`);
                 } catch (error) {
                     console.log(error)
                 }
