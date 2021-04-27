@@ -4,7 +4,7 @@ const mindBodyController = require('../controllers/mindBodyController');
 const bitrixController = require('../controllers/bitrixController');
 
 module.exports = function() {
-    router.post('/create', 
+    router.all('/create', 
     mindBodyController.create
     );
     router.post('/update', 
