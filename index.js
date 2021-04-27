@@ -6,7 +6,7 @@ const https = require("https");
 var options = {
     key: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/privkey.pem', 'utf8'),
     cert: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/cert.pem', 'utf8'),
-    ca: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/chain.pem', 'utf8')
+    ca: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/fullchain.pem', 'utf8')
    }
 
 const app = express();
