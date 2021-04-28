@@ -4,11 +4,11 @@ const cors = require('cors');
 const fs = require("fs");
 const https = require("https");
 
-var options = {
-    key: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.crt', 'utf8'),
-    cert: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.crt', 'utf8'),
-    ca: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.ca-bundle', 'utf8')
-   }
+//var options = {
+  //  key: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.crt', 'utf8'),
+    //cert: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.crt', 'utf8'),
+    //ca: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.ca-bundle', 'utf8')
+   //}
 
 const app = express();
 app.use(cors());
@@ -20,10 +20,10 @@ app.use(function(req, res, next) {
 
 app.use('/', routes());
 
-// app.listen(4000, () =>{
-//     console.log('servidor puerto 4000');
-// })
+ app.listen(4000, () =>{
+     console.log('servidor puerto 4000');
+ })
 
-https.createServer(options,app).listen(4000, () =>{
-    console.log('servidor puerto 4000');
-  });
+//https.createServer(options,app).listen(4000, () =>{
+  //  console.log('servidor puerto 4000');
+  //});
