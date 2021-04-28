@@ -5,9 +5,9 @@ const fs = require("fs");
 const https = require("https");
 
 var options = {
-    key: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/privkey.pem', 'utf8'),
-    cert: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/cert.pem', 'utf8'),
-    ca: fs.readFileSync('/home/bitrix/dehydrated/certs/crm.onlineblink.com/chain.pem', 'utf8')
+    key: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.crt', 'utf8'),
+    cert: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.crt', 'utf8'),
+    ca: fs.readFileSync('/etc/nginx/ssl/demo.asesores-e.com.ca-bundle', 'utf8')
    }
 
 const app = express();
